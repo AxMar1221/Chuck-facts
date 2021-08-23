@@ -34,7 +34,7 @@ class CategoryJoke extends React.Component {
           className="btn btn-primary"
           onClick={this.getFact}
         >
-          Next Chuck Joke!
+          Next Chuck Joke
         </Button>
       </div>
     );
