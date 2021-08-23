@@ -1,44 +1,37 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
-import './App.css';
+import React, { useState, Fragment, useRef, useEffect } from 'react';
+import { Dropdown } from 'semantic-ui-react'
+import { TypeJokeList } from '../typeJokeList/typeJokeList'
+import './typeJoke.css'
 
+export function TypeJoke({showJoke}) {
+    const categories = [
+            {key:"1", value:"animal"},
+            {key:"2", value:"career"},
+            {key:"3", value:"celebrity"},
+            {key:"4", value:"dev"},
+            {key:"5", value:"explicit"},
+            {key:"6", value:"fashion"},
+            {key:"7", value:"food"},
+            {key:"8", value:"history"},
+            {key:"9", value:"money"},
+            {key:"10", value:"movie"},
+            {key:"11", value:"music"},
+            {key:"12", value:"political"},
+            {key:"13", value:"religion"},
+            {key:"14", value:"science"},
+            {key:"15", value:"sport"},
+            {key:"16", value:"travel"}
+      ]
 
-const axios = require('axios').default;
-
-class CategoryJoke extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fact: 'Chuck Norris can text using his walkie talkie and without batteries.'
-    };
-    
-    this.getFact = this.getFact.bind(this);
-  }
-  
-  getFact() {
-    axios.get('https://api.chucknorris.io/jokes/random')
-    .then(response => {
-      this.setState({fact: response.data.value});
-    }).catch(error => {
-      console.log(error);
-    });
-  }
-  
-  render() {
-    return(
-      <div className="container__jokes text-center">
-        <h1 className="text__jokes">Chuck Norris Facts</h1>
-        <h3>{'"' + this.state.fact + '"'}</h3>
-        <Button 
-          type="button"
-          className="btn btn-primary"
-          onClick={this.getFact}
-        >
-          Next Chuck Joke
-        </Button>
-      </div>
-    );
-  }
+      const getJoke = (cat) =>{
+        console.log(cat)
+      }
+    return (
+        <Fragment>
+            {
+            categories.map((cat) =>
+                <TypeJokeList showJoke={showJoke} item={cat.value}></TypeJokeList>
+            )}
+        </Fragment>
+    )
 }
-
-export default CategoryJoke;
