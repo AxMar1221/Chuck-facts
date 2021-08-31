@@ -5,16 +5,10 @@ const CardJoke = ({ joke }) => {
   
   return (
     <div>
-      <div>
-          <img
-            className="cuck__icon"
-            src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
-            alt="chuck-icon"
-          />
+      <div className="jokes__container">
+          <p className="jokes__text "> {value} </p>
       </div>
-      <div className="container__jokes">
-        <p className="jokes__text "> {value} </p>
-      </div>
+      <p></p>
     </div>
   );
 };

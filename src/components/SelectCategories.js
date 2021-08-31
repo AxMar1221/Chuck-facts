@@ -1,16 +1,13 @@
 import React, { useReducer } from "react";
 import CardJoke from "./CardJoke";
 
-const RANDOM = "random";
 const RANDOM_BY_CATEGORIE = "randombycategorie";
 const SEARCH_JOKES = "search";
 const SelectCategories = ({
   initialState = {
-    randomJoke: {},
     categories: [],
     jokeByCategorie: {},
     searchJokes: [],
-    typeOfJoke: RANDOM,
   },
 }) => {
   function searchJokes({ target }) {
@@ -46,18 +43,8 @@ const SelectCategories = ({
         });
       });
   }
-  function randomJoke() {
-    fetch("https://api.chucknorris.io/jokes/random")
-      .then((data) => data.json())
-      .then((data) => {
-        dispatch({ payload: data, type: "setRandomJoke" });
-        return;
-      });
-  }
   const reducerFunction = (state, action) => {
     switch (action.type) {
-      case "setRandomJoke":
-        return { ...state, randomJoke: action.payload, typeOfJoke: RANDOM };
       case "setCategoriesOfJokes":
         return { ...state, categories: action.payload };
       case "setjokeByCategorie":
@@ -79,29 +66,23 @@ const SelectCategories = ({
 
   const [state, dispatch] = useReducer(reducerFunction, initialState);
   const currentJoke =
-    state.typeOfJoke === RANDOM ? state.randomJoke : state.jokeByCategorie;
+    state.typeOfJoke = state.jokeByCategorie;
   if (state.searchJokes !== undefined) {
   }
   return (
     <div>
+      <p></p>
       <header>
         <h3 className="chuck__facts">Chuck Facts</h3>
+        <img 
+         src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
+         alt="Cuchk-icon"
+        />
       </header>
-      <div className="jokes__container">
-        <h3>Let's have fun for a while</h3>
-
+      <p></p>
+      <div>
         <div>
-          <form>
-            <label htmlFor="random">
-              <input
-                type="radio"
-                value="random"
-                id="random"
-                onClick={randomJoke}
-              >
-              </input>
-              Random
-            </label>
+          <form className="jokes__container">
               <p></p>
               <label htmlFor="category">
                 <input
