@@ -74,9 +74,10 @@ const SelectCategories = ({
       <p></p>
       <header>
         <h3 className="chuck__facts">Chuck Facts</h3>
-        <img 
-         src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
-         alt="Cuchk-icon"
+        <img
+          className="chuck__icon"
+          src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
+          alt="Cuchk-icon"
         />
       </header>
       <p></p>
