@@ -5,7 +5,7 @@ import SelectCategories from "./SelectCategories";
 const Chuckjokes = () => {
 
   return (
-    <div className="jokes__box">
+    <div>
       <SelectCategories />
 
       <RandomJoke />
