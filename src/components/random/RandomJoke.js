@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
-import './randomJoke.css'
+import '../Style.css';
 
 const API_URL = `https://api.chucknorris.io/jokes/random`;
 
@@ -18,10 +18,10 @@ function RandomJoke() {
     }, [])
     
     return (
-        <div className="jokes__container">
-            <h1> Random Jokes </h1>            
+        <div className="joke__container">
+            <h1 className="joke__title"> Random Jokes </h1>            
                     <blockquote>
-                        <p className="jokes__text"> { joke } </p>
+                        <p className="joke__text"> { joke } </p>
                     </blockquote>
             <p></p>
                 <Button 

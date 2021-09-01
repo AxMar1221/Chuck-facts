@@ -1,11 +1,15 @@
-import "./App.css";
-import Chuckjokes from "./components/Chuckjokes";
+import CardJokes from "./components/CardJokes";
 
 function App() {
-  return (
 
-    <div>
-      <Chuckjokes />
+  return (
+    <div className="jokes__container">
+      <img
+        src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
+        alt="Chuck-icon"
+      />
+
+      <CardJokes />
     </div>
   );
 }
